@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color1: red;
+    --color2: rgb(240, 75, 75);
+    --color3: #fff;
+    --color4: #000;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f6f6;
+}
+
+.card {
+    position: relative;
+    width: 550px;
+    height: 250px;
+    box-shadow: 10px 10px 16px gray;
+    background: var(--color3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color2);
+    border-radius: 50%;
+    top: -140px;
+    left: -78%;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color1);
+    border-radius: 50%;
+    top: -150px;
+    left: -80%;
+}
+
+.card .light {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    right: 10px;
+    top: 10px;
+    box-shadow: 0px 0px 6px gray;
+    border-radius: 50%;
+}
+
+.card .light::before {
+    content: '\f185';
+    position: absolute;
+    font-family: 'Font Awesome 5 Free';
+    left: 7px;
+    top: 6px;
+    animation: gear 2s linear infinite;
+    z-index: 1;
+}
+
+.card .light input {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+    z-index: 2;
+}
+
+.light .slider {
+    position: absolute;
+    width: 40px;
+    height: 100px;
+    background: #fff;
+    box-shadow: 0px 0px 6px gray;
+    border-radius: 10px 0px 0px 10px;
+    top: 70px;
+    right: -80px;
+    transition: all .4s ease-in-out;
+}
+
+.light .slider h6 {
+    width: 15px;
+    height: 15px;
+    /* background: greenyellow; */
+    margin: 12px 0px 0px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.slider h6:nth-child(1) {
+    background: #ff6347;
+}
+
+.slider h6:nth-child(2) {
+    background: #4682b4;
+}
+
+.slider h6:nth-child(3) {
+    background: #6a5acd;
+}
+
+input:checked+.slider {
+    right: -10px;
+}
+
+.card h2 {
+    margin: 20px 0px 0px 150px;
+    font-weight: bold;
+    color: var(--color4);
+    font-family: fantasy;
+    letter-spacing: 1px;
+}
+
+.card .pra {
+    margin: 20px 0px 0px 150px;
+    font-weight: lighter;
+    font-size: 13px;
+    color: var(--color4);
+}
+
+.card .pra1 {
+    margin: 0px 0px 0px 20px;
+    font-weight: lighter;
+    font-size: 13px;
+    color: var(--color4);
+}
+
+@keyframes gear {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
